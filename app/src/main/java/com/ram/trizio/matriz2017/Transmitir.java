@@ -21,6 +21,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.Spinner;
@@ -46,6 +47,7 @@ public class Transmitir extends AppCompatActivity implements AdapterView.OnItemS
     String dimensionaltura = "";
     String colorHexa = "";
     InternalView myView;
+    int indice = 0;
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -108,11 +110,9 @@ public class Transmitir extends AppCompatActivity implements AdapterView.OnItemS
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        dimensionx = String.valueOf(regiones.get(position).getX());
-        dimensiony =String.valueOf(regiones.get(position).getY());
-        dimensionancho = String.valueOf(regiones.get(position).getAncho());
-        dimensionaltura = String.valueOf(regiones.get(position).getAltura());
-        colorHexa = regiones.get(position).getColorBorde();
+
+        indice = position;
+
         myView = new InternalView(this);
         RelativeLayout layout1 = (RelativeLayout) findViewById(R.id.canvas);
 
@@ -215,7 +215,7 @@ public class Transmitir extends AppCompatActivity implements AdapterView.OnItemS
 
         Timer timer = new Timer();
 
-        timer.schedule(new TimerTask() {
+        /*timer.schedule(new TimerTask() {
             public void run() {
                 mCount++;
                 demoview.postInvalidate();
@@ -225,7 +225,7 @@ public class Transmitir extends AppCompatActivity implements AdapterView.OnItemS
                     cancel();
                 }
             }
-        }, tiempo, tiempo);
+        }, tiempo, tiempo);*/
     }
 
     private class InternalView extends View{
@@ -244,56 +244,69 @@ public class Transmitir extends AppCompatActivity implements AdapterView.OnItemS
             paint.setStyle(Paint.Style.STROKE);
             paint.setColor(Color.BLUE);
 
+            for (int i = 0;i<regiones.size();i++) {
+                dimensionx = String.valueOf(regiones.get(i).getX());
+                dimensiony = String.valueOf(regiones.get(i).getY());
+                dimensionancho = String.valueOf(regiones.get(i).getAncho());
+                dimensionaltura = String.valueOf(regiones.get(i).getAltura());
+                colorHexa = regiones.get(i).getColorBorde();
 
-            try {
-                canvas.drawLine(Float.parseFloat(dimensionx), Float.parseFloat(dimensiony),
-                        Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho), Float.parseFloat(dimensiony)
-                        , paint);
 
-                canvas.drawLine(Float.parseFloat(dimensionx), Float.parseFloat(dimensiony),
-                        Float.parseFloat(dimensionx), Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura)
-                        , paint);
+                try {
+                    canvas.drawLine(Float.parseFloat(dimensionx), Float.parseFloat(dimensiony),
+                            Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho), Float.parseFloat(dimensiony)
+                            , paint);
 
-                canvas.drawLine(Float.parseFloat(dimensionx) , Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura),
-                        Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho), Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura)
-                        , paint);
+                    canvas.drawLine(Float.parseFloat(dimensionx), Float.parseFloat(dimensiony),
+                            Float.parseFloat(dimensionx), Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura)
+                            , paint);
 
-                canvas.drawLine(Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho) , Float.parseFloat(dimensiony),
-                        Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho), Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura)
-                        , paint);
+                    canvas.drawLine(Float.parseFloat(dimensionx), Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura),
+                            Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho), Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura)
+                            , paint);
 
-                int color = (int)Long.parseLong(colorHexa, 16);
-                int r = (color >> 16) & 0xFF;
-                int g = (color >> 8) & 0xFF;
-                int b = (color >> 0) & 0xFF;
+                    canvas.drawLine(Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho), Float.parseFloat(dimensiony),
+                            Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho), Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura)
+                            , paint);
 
-                //canvas.drawColor(Color.WHITE);
-                paint = new Paint();
-                paint.setStyle(Paint.Style.STROKE);
-                paint.setColor(color);
+                    int color = (int) Long.parseLong(colorHexa, 16);
+                    int r = (color >> 16) & 0xFF;
+                    int g = (color >> 8) & 0xFF;
+                    int b = (color >> 0) & 0xFF;
 
-                canvas.drawLine(Float.parseFloat(dimensionx) - 30, Float.parseFloat(dimensiony) - 30,
-                        Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho) + 30, Float.parseFloat(dimensiony) - 30
-                        , paint);
+                    //canvas.drawColor(Color.WHITE);
+                    paint = new Paint();
+                    paint.setStyle(Paint.Style.STROKE);
+                    paint.setColor(color);
 
-                canvas.drawLine(Float.parseFloat(dimensionx) - 30, Float.parseFloat(dimensiony) - 30,
-                        Float.parseFloat(dimensionx) - 30, Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura) + 30
-                        , paint);
+                    canvas.drawLine(Float.parseFloat(dimensionx) - 30, Float.parseFloat(dimensiony) - 30,
+                            Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho) + 30, Float.parseFloat(dimensiony) - 30
+                            , paint);
 
-                canvas.drawLine(Float.parseFloat(dimensionx) - 30 , Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura) + 30,
-                        Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho) + 30, Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura) + 30
-                        , paint);
+                    canvas.drawLine(Float.parseFloat(dimensionx) - 30, Float.parseFloat(dimensiony) - 30,
+                            Float.parseFloat(dimensionx) - 30, Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura) + 30
+                            , paint);
 
-                canvas.drawLine(Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho) + 30 , Float.parseFloat(dimensiony) - 30,
-                        Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho) + 30, Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura) + 30
-                        , paint);
+                    canvas.drawLine(Float.parseFloat(dimensionx) - 30, Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura) + 30,
+                            Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho) + 30, Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura) + 30
+                            , paint);
 
-            }catch (Exception e){
-                e.printStackTrace();
+                    canvas.drawLine(Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho) + 30, Float.parseFloat(dimensiony) - 30,
+                            Float.parseFloat(dimensionx) + Float.parseFloat(dimensionancho) + 30, Float.parseFloat(dimensiony) + Float.parseFloat(dimensionaltura) + 30
+                            , paint);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
+    public void borrar(View v){
+        EditText texto = (EditText)findViewById(R.id.editexto);
+
+        texto.setText("");
+    }
 
 
     private class DemoView extends View {
@@ -319,7 +332,7 @@ public class Transmitir extends AppCompatActivity implements AdapterView.OnItemS
                     break; // up to the number in mCount
                 }else {
                     canvas.drawColor(Color.WHITE);
-                    canvas.drawText("DAVID", c.mx, c.my, mPaint);
+                    canvas.drawText("DAVID", regiones.get(indice).getX() + 30, regiones.get(indice).getY() + 30, mPaint);
 
                     count++;
                 }
