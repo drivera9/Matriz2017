@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ram.trizio.matriz2017">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".NavigationActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Transmitir" />
+        <activity android:name=".NuevaMatriz" />
+        <activity android:name=".Anadir" />
+        <activity android:name=".AnadirTexto" />
+        <activity
+            android:name=".AnadirRegion"
+            android:label="@string/title_activity_anadir_region"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AnadirPrograma"
+            android:label="@string/title_activity_anadir_programa"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AnadirRegionDetalle"></activity>
+    </application>
+
+</manifest>
