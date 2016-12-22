@@ -35,16 +35,12 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/Texto"
                         android:text="Nombre"/>
 
                     <EditText
                         android:id="@+id/editNombre"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"/>
+                        style="@style/Edit"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -53,16 +49,12 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/Texto"
                         android:text="Punto de partida X"/>
 
                     <EditText
                         android:id="@+id/editX"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"/>
+                        style="@style/Edit"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -71,16 +63,12 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/Texto"
                         android:text="Punto de partida Y"/>
 
                     <EditText
                         android:id="@+id/editY"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"/>
+                        style="@style/Edit"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -89,16 +77,12 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/Texto"
                         android:text="Ancho"/>
 
                     <EditText
                         android:id="@+id/editAncho"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"/>
+                        style="@style/Edit"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -107,16 +91,12 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/Texto"
                         android:text="Altura"/>
 
                     <EditText
                         android:id="@+id/editAltura"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"/>
+                        style="@style/Edit"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -125,10 +105,8 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Borde"/>
+                        style="@style/Texto"
+                        android:text="Color borde"/>
 
                     <Button
                         android:onClick="palette"
@@ -136,7 +114,42 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@drawable/ic_palette_black_48dp"/>
+
+                    <TextView
+                        style="@style/Texto"
+                        android:text="Color fondo"/>
+
+                    <Button
+                        android:onClick="palette"
+                        android:layout_margin="10dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/ic_palette_black_48dp"/>
+
                 </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/Texto"
+                        android:text="Brillo"/>
+
+                    <SeekBar
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Texto"
+                    android:text="Observaciones"/>
+
+                <EditText
+                    android:lines="2"
+                    style="@style/Edit"/>
 
 
             </LinearLayout>
@@ -149,14 +162,12 @@
 
             <Button
                 android:text="PREVISUALIZAR"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/BotonGuardar"
                 android:onClick="previsualizar"/>
 
             <Button
                 android:text="GUARDAR"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/BotonGuardar"
                 android:onClick="ok"/>
 
         </LinearLayout>

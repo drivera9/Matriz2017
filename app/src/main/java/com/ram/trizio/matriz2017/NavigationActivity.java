@@ -46,7 +46,7 @@ public class NavigationActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        String[] leadsNames = {
+        String[] arrayMatrices = {
                 "Matriz 1",
                 "Matriz 2",
                 "Matriz 3",
@@ -57,14 +57,14 @@ public class NavigationActivity extends AppCompatActivity
                 this,
                 R.layout.texto,
                 R.id.list_content,
-                leadsNames);
+                arrayMatrices);
 
 
 
-        ListView lista = (ListView) findViewById(R.id.listView);
-        lista.setAdapter(mLeadsAdapter);
+        ListView listaMatrices = (ListView) findViewById(R.id.listView);
+        listaMatrices.setAdapter(mLeadsAdapter);
 
-        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listaMatrices.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 switch( position )

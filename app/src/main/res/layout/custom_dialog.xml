@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Texto"
+        android:text="Nombre del programa"/>
+
+    <EditText
+        style="@style/Edit"
+        android:id="@+id/editNombrePrograma"
+        android:inputType="text" />
+
+    <TextView
+        style="@style/Texto"
+        android:text="Observaciones"/>
+
+    <EditText
+        style="@style/Edit"
+        android:id="@+id/editObs"
+        android:inputType="text" />
+
+</LinearLayout>

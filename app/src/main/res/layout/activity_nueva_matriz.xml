@@ -10,4 +10,154 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ram.trizio.matriz2017.NuevaMatriz">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Texto"
+            android:text="Nombre de la matriz"/>
+
+        <EditText
+            style="@style/Edit"
+            android:layout_width="200dp"
+            android:id="@+id/editNombre"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:id="@+id/spinnerRefMatriz"
+               >
+
+
+            </Spinner>
+
+            <Spinner
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:id="@+id/spinnerTipoMatriz">
+
+
+            </Spinner>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                style="@style/Texto"
+                android:text="Tipo color"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkRgb"
+                android:text="RGB"
+                android:onClick="checkRGB"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkMono"
+                android:text="Mono color"
+                android:onClick="checkMono"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                style="@style/Texto"
+                android:text="Dimension ( cm )"/>
+
+            <EditText
+                style="@style/Edit"
+                android:layout_width="100dp"
+                android:id="@+id/editXcm"
+                android:hint="X"/>
+
+            <EditText
+                style="@style/Edit"
+                android:layout_width="100dp"
+                android:id="@+id/editYcm"
+                android:hint="Y"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                style="@style/Texto"
+                android:text="Dimension ( leds )"/>
+
+            <EditText
+                style="@style/Edit"
+                android:layout_width="100dp"
+                android:id="@+id/editXled"
+                android:hint="X"/>
+
+            <EditText
+                style="@style/Edit"
+                android:layout_width="100dp"
+                android:id="@+id/editYled"
+                android:hint="Y"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <TextView
+                style="@style/Texto"
+                android:text="Resolucion"/>
+
+            <EditText
+                style="@style/Edit"
+                android:layout_width="100dp"
+                android:id="@+id/editX"
+                android:hint="Ejm : P10"/>
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/Texto"
+            android:text="Observaciones"/>
+
+        <EditText
+            style="@style/Edit"
+            android:id="@+id/editObs"
+            android:lines="2"/>
+
+        <Button
+           style="@style/BotonGuardar"/>
+    </LinearLayout>
+
 </RelativeLayout>

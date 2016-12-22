@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static android.R.attr.dial;
 import static android.R.attr.password;
 
 public class AnadirPrograma extends AppCompatActivity {
@@ -35,36 +37,7 @@ public class AnadirPrograma extends AppCompatActivity {
         titulo = getIntent().getExtras().getString("titulo");
         setTitle(titulo);
 
-        String[] leadsNames = new String[programas.size()];
-        for (int i = 0;i<programas.size();i++){
-            leadsNames[i] = programas.get(i).trim();
-        }
 
-
-        ArrayAdapter mLeadsAdapter = new ArrayAdapter<>(
-                this,
-                R.layout.texto,
-                R.id.list_content,
-                leadsNames);
-
-
-
-        ListView lista = (ListView) findViewById(R.id.listView);
-        lista.setAdapter(mLeadsAdapter);
-
-        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                switch( position )
-                {
-                    case 0:
-                        Intent i = new Intent(AnadirPrograma.this,AnadirRegion.class);
-                        startActivity(i);
-
-                        break;
-                }
-            }
-        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -74,18 +47,17 @@ public class AnadirPrograma extends AppCompatActivity {
                 alertDialog.setTitle("Nombre del programa");
                 alertDialog.setMessage("Entre el nombre");
 
-                final EditText input = new EditText(AnadirPrograma.this);
-                input.setGravity(Gravity.CENTER);
-                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.MATCH_PARENT);
-                input.setLayoutParams(lp);
-                alertDialog.setView(input); // uncomment this line
+                LayoutInflater inflater = AnadirPrograma.this.getLayoutInflater();
+                final View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+                alertDialog.setView(dialogView);
+
+                final EditText nombrePrograma = (EditText) dialogView.findViewById(R.id.editNombrePrograma);
+
 
                 alertDialog.setPositiveButton("YES",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                actualizar(input.getText().toString());
+                                actualizar(nombrePrograma.getText().toString());
                             }
                         });
 
@@ -105,16 +77,16 @@ public class AnadirPrograma extends AppCompatActivity {
 
         programas.add(nombre);
 
-        String[] leadsNames = new String[programas.size()];
+        String[] arrayProgramas = new String[programas.size()];
         for (int i = 0;i<programas.size();i++){
-            leadsNames[i] = programas.get(i).trim();
+            arrayProgramas[i] = programas.get(i).trim();
         }
 
         ArrayAdapter mLeadsAdapter = new ArrayAdapter<>(
                 this,
                 R.layout.texto,
                 R.id.list_content,
-                leadsNames);
+                arrayProgramas);
 
 
 

@@ -35,4 +35,30 @@
         <item name="android:colorForeground">#fff</item>
     </style>
 
+    <style name="BotonGuardar">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">GUARDAR</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">#009688</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="Texto">
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Edit">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

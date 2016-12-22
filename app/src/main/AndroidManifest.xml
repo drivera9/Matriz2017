@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Transmitir" />
+        <activity android:name=".Transmitir"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".NuevaMatriz" />
         <activity android:name=".Anadir" />
         <activity android:name=".AnadirTexto" />
@@ -30,7 +31,8 @@
             android:name=".AnadirPrograma"
             android:label="@string/title_activity_anadir_programa"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AnadirRegionDetalle"></activity>
+        <activity android:name=".AnadirRegionDetalle"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>
